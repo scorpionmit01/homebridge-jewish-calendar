@@ -1,0 +1,30 @@
+{
+  "name": "homebridge-jewish-calendar",
+  "displayName": "Homebridge Jewish Calendar Virtual Sensors",
+  "engines": {
+    "homebridge": ">0.4.53",
+    "node": ">=10.17.0"
+  },
+  "version": "1.0.0",
+  "description": "HomeBridge Plugin that establishes a block of sensors related to events on the Jewish Calendar that you may use in your automation projects.",
+  "main": "index.js",
+  "keywords": [
+    "homebridge",
+    "homebridge-plugin",
+    "hebacal",
+    "homekit",
+    "jewish",
+    "hebrew",
+    "calendar"
+  ],
+  "author": { 
+    "name"  : "Alex Hochberger",
+    "email" : "scorpion@alum.mit.edu",
+    "url": "https://floridastrategicconsulting.com/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "he-date": "^1.2.2",
+    "suncalc": "^1.8.0"
+  }
+}

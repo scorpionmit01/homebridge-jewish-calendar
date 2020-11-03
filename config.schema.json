@@ -1,0 +1,188 @@
+{
+    "pluginAlias": "JewishCalendar",
+    "pluginType": "accessory",
+    "singular": true,
+    "schema": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "title": "Name",
+                "type": "string",
+                "required": true,
+                "default": "JewishCalendar",
+                "description": "This defines the overall name, individual sensors have text inside as well."
+            },
+            "latitude": {
+                "title": "Latitude",
+                "type": "number",
+                "required": true,
+                "placeholder": 40.7128,
+                "description": "Your location latitude. Google Maps or a myriad of web tools can help you find it. Sunset times are set based upon it."
+            },
+            "longitude": {
+                "title": "Latitude",
+                "type": "string",
+                "required": true,
+                "placeholder": -74.0060,
+                "description": "Your location longitude. Google Maps or a myriad of web tools can help you find it. Sunset times are set based upon it."
+            },
+            "candlelighting": {
+                "title": "Candle Lighting Time",
+                "type": "number",
+                "required": true,
+                "default": 18,
+                "description": "How many minutes before Sunset do your days start."
+            },
+            "havdalah": {
+                "title": "Nightfall (Havdalah Time)",
+                "type": "number",
+                "required": true,
+                "default": 42,
+                "description": "How many minutes after Sunset is your local nightfall. Havadalah Time"
+            },
+            "israel": {
+                "title": "Israeli Calendar (1 Day Yom Tov)",
+                "type": "boolean",
+                "default": false,
+                "description": "When checked, switches to Israeli Calendar of 2 Day Rosh Hashana and 1 Day for other Yom Tov."
+            },
+            "sheminiatzeret_in_sukkot": {
+                "title": "Shemini Atzeret is also Sukkot VIII",
+                "type": "boolean",
+                "default": false,
+                "description": "When checked, on Shemini Atzeret day 1, Sukkot will also trigger as on. Turn this on if you have Sukkot Automations that you'd like to run on Shemini Atzeret but not on Simchat Torah."
+            },
+            "showAdvancedOptions": {
+                "title": "Modify Advanced Options",
+                "description": "Mostly ability to replace Modern Transliterations with other spellings, and choosing Minhagmim for advanced options.",
+                "type": "boolean"
+            },
+            "Shabbat": {
+                "title": "Preferred spelling for Shabbat",
+                "type": "string",
+                "default": "Shabbat",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" }
+            },
+            "YomTov": {
+                "title": "Preferred spelling for Yom Tov",
+                "type": "string",
+                "default": "Yom Tov",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" }
+            },
+            "RoshHashana": {
+                "title": "Preferred spelling for Rosh Hashana",
+                "type": "string",
+                "default": "Rosh Hashana",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" }
+            },
+            "YomKippur": {
+                "title": "Preferred spelling for Yom Kippur",
+                "type": "string",
+                "default": "Yom Kippur",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" }
+            },
+            "Sukkot": {
+                "title": "Preferred spelling for Sukkot",
+                "type": "string",
+                "default": "Sukkot",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" }
+            },
+            "SheminiAtzeret": {
+                "title": "Preferred spelling for Shemini Atzeret",
+                "type": "string",
+                "default": "Shemini Atzeret",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" }
+            },
+            "Pesach": {
+                "title": "Preferred spelling for Pesach / Passover",
+                "type": "string",
+                "default": "Pesach",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" }
+            },
+            "Shavuot": {
+                "title": "Preferred spelling for Shavuot",
+                "type": "string",
+                "default": "Shavuot",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" }
+            },
+            "Chanukah": {
+                "title": "Preferred spelling for Chanukah",
+                "type": "string",
+                "default": "Chanukah",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" }
+            },
+            "Kodesh": {
+                "title": "Preferred spelling for the Shabbat or Yom Tov Sensor - i.e. Sabbath Mode",
+                "type": "string",
+                "default": "Kodesh",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" }
+            },
+            "Mourning": {
+                "title": "Preferred spelling for the Sefirat Haomer or Three Weeks Sensor",
+                "type": "string",
+                "default": "Mourning",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" },
+                "description": "This sensor turns on when either Three Weeks or Sefirat Haomer is running. You can use in music related automations if you want."
+            },
+            "Omer": {
+                "title": "Preferred spelling for the Omer",
+                "type": "string",
+                "default": "Omer",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" }
+            },
+            "SefiratOmer": {
+                "title": "Preferred spelling for the Sefirat Haomer",
+                "type": "string",
+                "default": "Sefirat Omer",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" },
+                "description": "This sensor turns on when either Sefirat Haomer is running. You can use in music related automations if you want."
+            },
+            "sefiratOmerCustom": {
+                "title": "Your Custom for Sefirat Haomer",
+                "type": "string",
+                "default": "Ashkenazi",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" },
+                "description": "I don't think anyone will use this, it's included for completeness.",
+                "oneOf": [
+                    { "title": "Ashkenazi - through Lag B'omer", "enum": ["Ashkenazi"] },
+                    { "title": "Sephardic - one additional day", "enum": ["Sephardic"] },
+                    { "title": "Ashkenazi -  starts on Rosh Chodesh Iyar", "enum": ["Iyar"] },
+                    { "title": "Ashkenazi - starts on 2nd day of Iyar", "enum": ["Iyar2"] }
+                ]
+            },
+            "ThreeWeeks": {
+                "title": "Preferred spelling for the period of mourning leading to Tisha B'av",
+                "type": "string",
+                "default": "Three Weeks",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" }
+            },
+            "threeWeeksCustom": {
+                "title": "Preferred spelling for the Three Weeks",
+                "type": "string",
+                "default": "Ashkenazi",
+                "required": true,
+                "condition": { "functionBody": "return model.showAdvancedOptions === true;" },
+                "description": "Runs through the day after the fast. I didn't feel like dealing with peoples different midday customs for an obscure feature.",
+                "oneOf": [
+                    { "title": "Ashkenazi: Tzom Tammuz through Tisha B'av", "enum": ["Ashkenazi"] },
+                    { "title": "Sephardic: Rosh Chodesh Av through Tisha B'av", "enum": ["Sephardic"] }
+                ]
+            }
+        }
+    }
+}
