@@ -11,12 +11,10 @@
   "description": "HomeBridge Plugin that establishes a block of sensors related to events on the Jewish Calendar that you may use in your automation projects.",
   "main": "index.js",
   "keywords": [
-    "homebridge",
     "homebridge-plugin",
-    "hebacal",
-    "homekit",
+    "hoobs-plugin",
+    "hebcal",
     "jewish",
-    "hebrew",
     "calendar"
   ],
   "repository": {
