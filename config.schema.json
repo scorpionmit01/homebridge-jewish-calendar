@@ -14,7 +14,7 @@
             },
             "latitude": {
                 "title": "Latitude",
-                "type": "number",
+                "type": "string",
                 "required": true,
                 "placeholder": 40.7128,
                 "description": "Your location latitude. Google Maps or a myriad of web tools can help you find it. Sunset times are set based upon it."
@@ -172,12 +172,12 @@
                 "condition": { "functionBody": "return model.showAdvancedOptions === true;" }
             },
             "threeWeeksCustom": {
-                "title": "Preferred spelling for the Three Weeks",
+                "title": "Preferred Custom for the Three Weeks",
                 "type": "string",
                 "default": "Ashkenazi",
                 "required": true,
                 "condition": { "functionBody": "return model.showAdvancedOptions === true;" },
-                "description": "Runs through the day after the fast. I didn't feel like dealing with peoples different midday customs for an obscure feature.",
+                "description": "Runs through the day after the fast. Start on Tzom Tamuz = Ashkenazi, start of Rosh Chodesh Av = Sephardic.",
                 "oneOf": [
                     { "title": "Ashkenazi: Tzom Tammuz through Tisha B'av", "enum": ["Ashkenazi"] },
                     { "title": "Sephardic: Rosh Chodesh Av through Tisha B'av", "enum": ["Sephardic"] }

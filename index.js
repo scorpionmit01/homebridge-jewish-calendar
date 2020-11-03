@@ -12,8 +12,8 @@ class JewishCalendar {
   constructor (log, config, api) {
     this.log = log;
 
-    this.lat = config.latitude;
-    this.long = config.longitude;
+    this.lat = parseFloat(config.latitude);
+    this.long = parseFloat(config.longitude);
     this.name = config.name;
 
     this.il = config.israel;
