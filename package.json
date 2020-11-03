@@ -1,6 +1,8 @@
 {
   "name": "homebridge-jewish-calendar",
   "displayName": "Homebridge Jewish Calendar Virtual Sensors",
+  "homepage": "https://github.com/scorpionmit01/homebridge-jewish-calendar",
+  "bugs": "https://github.com/scorpionmit01/homebridge-jewish-calendar/issues",
   "engines": {
     "homebridge": ">0.4.53",
     "node": ">=10.17.0"
@@ -17,6 +19,10 @@
     "hebrew",
     "calendar"
   ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/scorpionmit01/homebridge-jewish-calendar.git"
+  },
   "author": { 
     "name"  : "Alex Hochberger",
     "email" : "scorpion@alum.mit.edu",
