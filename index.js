@@ -225,7 +225,7 @@ class JewishCalendar {
     }
     return false;
   }
-  isMourning() { return this.isSefiratOmer || this.isThreeWeeks;}
+  isMourning() { return this.isSefiratOmer() || this.isThreeWeeks();}
 
   isShavuot() {
     // Leap years can make Sivan's month number "bounce" so we check for it
