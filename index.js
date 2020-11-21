@@ -42,8 +42,8 @@ class JewishCalendar {
     this.services.SefiratOmer = new Service.ContactSensor(config.SefiratOmer, "SefiratOmer");
     this.services.Mourning = new Service.ContactSensor(config.Mourning, "Mourning");
 
-    this.updateJewishDay();
-    setTimeout(this.updateSensors.bind(this), 1000 * 5);
+    setTimeout(this.updateJewishDay.bind(this), 1000 * 5);
+    setTimeout(this.updateSensors.bind(this), 1000 * 10);
   }
 
   updateSensors() {
