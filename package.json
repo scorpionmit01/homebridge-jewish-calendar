@@ -7,7 +7,7 @@
     "homebridge": ">0.4.53",
     "node": ">=10.17.0"
   },
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "HomeBridge Plugin that establishes a block of sensors related to events on the Jewish Calendar that you may use in your automation projects.",
   "main": "index.js",
   "keywords": [
@@ -18,12 +18,12 @@
     "calendar"
   ],
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/scorpionmit01/homebridge-jewish-calendar.git"
+    "type": "git",
+    "url": "https://github.com/scorpionmit01/homebridge-jewish-calendar.git"
   },
-  "author": { 
-    "name"  : "Alex Hochberger",
-    "email" : "scorpion@alum.mit.edu",
+  "author": {
+    "name": "Alex Hochberger",
+    "email": "scorpion@alum.mit.edu",
     "url": "https://floridastrategicconsulting.com/"
   },
   "license": "MIT",
