@@ -1,6 +1,7 @@
 [![npm version](https://badge.fury.io/js/homebridge-jewish-calendar.svg)](https://badge.fury.io/js/homebridge-jewish-calendar)
 [![GitHub release](https://img.shields.io/github/release/scorpionmit01/homebridge-jewish-calendar.svg)](https://GitHub.com/scorpionmit01/homebridge-jewish-calendar/releases/)
 [![GitHub license](https://img.shields.io/github/license/scorpionmit01/homebridge-jewish-calendar.svg)](https://github.com/scorpionmit01/homebridge-jewish-calendar/blob/master/LICENSE)
+[![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
 
 # "Jewish Calendar" Plugin
 
