@@ -42,8 +42,9 @@ class JewishCalendar {
     this.services.SefiratOmer = new Service.ContactSensor(config.SefiratOmer, "SefiratOmer");
     this.services.Mourning = new Service.ContactSensor(config.Mourning, "Mourning");
 
-    setTimeout(this.updateJewishDay.bind(this), 1000 * 5);
-    setTimeout(this.updateSensors.bind(this), 1000 * 10);
+    updateJewishDay();
+    updateSensors();
+    setTimeout(this.updateLoop.bind(this), 30000);
   }
 
   updateSensors() {
@@ -61,8 +62,6 @@ class JewishCalendar {
     this.services.Omer.getCharacteristic(Characteristic.ContactSensorState).setValue(this.isOmer());
     this.services.SefiratOmer.getCharacteristic(Characteristic.ContactSensorState).setValue(this.isSefiratOmer());
     this.services.Mourning.getCharacteristic(Characteristic.ContactSensorState).setValue(this.isMourning());
-
-    setTimeout(this.updateSensors.bind(this), 1000 * 30);
   }
 
   getName(obj, callback) {
@@ -124,14 +123,22 @@ class JewishCalendar {
 
     console.log("This Year's Hebrew Months: ");
     console.log(this.hebrewMonths);
-
-    var tomorrow = new Date();
-    tomorrow.setDate(this.gDate.getDate() + 1);
-    tomorrow.setHours(0,5,0,0);
-    var delay = tomorrow.getTime() - this.gDate.getTime();
-    console.log("Will update in " + delay + "ms. At " + tomorrow.toLocaleString());
-    setTimeout(this.updateJewishDay.bind(this), delay);
   }
+
+  updateLoop() {
+    var today = new Date();
+    if (
+      (this.gDate.getFullYear() != today.getFullYear()) ||
+      (this.gDate.getMonth() != today.getMonth()) ||
+      (this.gDate.getDate() != today.getDate())
+    ) {
+        updateJewishDay();
+    }
+    updateSensors();
+    setTimeout(this.updateLoop.bind(this), 30000); 
+  }
+
+
 
   isShabbat() {
     var day = this.gDate.getDay();
