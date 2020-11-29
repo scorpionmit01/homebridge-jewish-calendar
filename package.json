@@ -7,7 +7,7 @@
     "homebridge": ">0.4.53",
     "node": ">=10.17.0"
   },
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "HomeBridge Plugin that establishes a block of sensors related to events on the Jewish Calendar that you may use in your automation projects.",
   "main": "index.js",
   "keywords": [
