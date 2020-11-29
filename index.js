@@ -101,7 +101,7 @@ class JewishCalendar {
   }
 
   updateJewishDay() {
-    console.log("Jewish Days are Recalculated every day at 12:05 AM");
+    console.log("Jewish Days are whenever the date changes.");
     this.gDate = new Date();
     this.hDate = new this.HeDate(this.gDate);
 
