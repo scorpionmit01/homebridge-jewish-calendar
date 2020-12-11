@@ -127,13 +127,16 @@ class JewishCalendar {
 
   updateLoop() {
     var today = new Date();
-    if (
+/*    if (
       (this.gDate.getFullYear() != today.getFullYear()) ||
       (this.gDate.getMonth() != today.getMonth()) ||
       (this.gDate.getDate() != today.getDate())
     ) {
+  */
         this.updateJewishDay();
+/*
     }
+*/
     this.updateSensors();
     setTimeout(this.updateLoop.bind(this), 30000); 
   }
