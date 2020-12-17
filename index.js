@@ -101,14 +101,14 @@ class JewishCalendar {
   }
 
   updateJewishDay() {
-    console.log("Jewish Days are whenever the date changes.");
+    this.log.debug("Jewish Days are whenever the date changes.");
     this.gDate = new Date();
     this.hDate = new this.HeDate(this.gDate);
 
     var suntimes = this.SunCalc.getTimes(this.gDate, this.lat, this.long);
     this.sunset = suntimes.sunsetStart;
     
-    console.log("Sunset Tonight: " + this.sunset.toLocaleString());
+    this.log.debug("Sunset Tonight: " + this.sunset.toLocaleString());
 // Note, this is for programming. In non leap years, Adar1 and Adar2 are BOTH 5. Month is zero indexed.
 
     this.hebrewMonths = {'Tishri': 0, 'Heshvan': 1, 'Kislev': 2, 'Tevet': 3, 'Shevat': 4, 'Adar1': 5};
@@ -121,8 +121,8 @@ class JewishCalendar {
     this.hebrewMonths.Av = new this.HeDate(thisYear + 1, -2).getMonth();
     this.hebrewMonths.Elul = new this.HeDate(thisYear + 1, -1).getMonth();
 
-    console.log("This Year's Hebrew Months: ");
-    console.log(this.hebrewMonths);
+    this.log.debug("This Year's Hebrew Months: ");
+    this.log.debug(this.hebrewMonths);
   }
 
   updateLoop() {
