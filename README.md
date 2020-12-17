@@ -94,7 +94,7 @@ If you come up with clever hacks, feel free to let me know. I mostly disable the
 
 ## Explanations of some Specifics:
 
-Koshesh is true whenever Shabbat or Yom Kippur is true. I have it so I can check a single value when disabling routines that run off motion sensors.
+Koshesh is true whenever Shabbat or Yom Tov is true. I have it so I can check a single value when disabling routines that run off motion sensors.
 
 Sefirat Omer settings are:
   Ashkenazi: Pesach 2 -> before Lag B'omer
