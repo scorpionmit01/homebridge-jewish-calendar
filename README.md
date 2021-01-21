@@ -20,6 +20,7 @@ Example config.json:
             "longitude": -74.0060,
             "candlelighting": 18,
             "havdalah": 42,
+            "offset": 0,
             "israel": false,
             "sheminiatzeret_in_sukkot": false,
             "Shabbat": "Shabbes",
@@ -71,6 +72,15 @@ Conditions:
 Scene: Sukkah On
 
 NOTE: Because of quirks in how Sun-Calc and Apple can calculate things like Sundown, I recommend that you either use a fixed Time for your Trigger, or Sundown or later. But setting it to run 15 minutes before Sundown when Shabbat: On should work.
+
+## Debugging your rules
+
+You can set the Offset to add (negative to subtract) minutes to the date/time to allow you to test rules. This is important if you are testing Shabbat rules and don't want to be using your electronics on Shabbat.
+
+If you want to code your Shabbat rules on Sunday, you can do offset: -1440, and it will run everything as though then.
+
+Hat tip to moshed for the idea, Issue #3
+https://github.com/scorpionmit01/homebridge-jewish-calendar/issues/3
 
 ## Silly but valid examples
 

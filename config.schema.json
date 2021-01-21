@@ -40,6 +40,13 @@
                 "default": 42,
                 "description": "How many minutes after Sunset is your local nightfall. Havadalah Time"
             },
+            "offset": {
+                "title": "Time Offset for Programming",
+                "type": "number",
+                "required": true,
+                "default": 0,
+                "description": "Adds this number of minutes (negative to go back) to all times. This is useful for debugging your rules, i.e. go back 24 hours to test Shabbat rules on Sunday."
+            },
             "israel": {
                 "title": "Israeli Calendar (1 Day Yom Tov)",
                 "type": "boolean",

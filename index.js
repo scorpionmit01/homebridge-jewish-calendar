@@ -25,6 +25,7 @@ class JewishCalendar {
 
     this.HeDate = require('he-date');
     this.SunCalc = require('suncalc');
+    this.offset = config.offset;
 
     this.services = {};
     this.services.Shabbat = new Service.ContactSensor(config.Shabbat, "Shabbat");
@@ -101,8 +102,12 @@ class JewishCalendar {
   }
 
   updateJewishDay() {
-    this.log.debug("Jewish Days are whenever the date changes.");
     this.gDate = new Date();
+    if ((typeof this.offset !== 'undefined') && (this.offset != 0)) {
+      this.log.debug("Shifting the time by " + this.offset + " minutes.");
+      this.gDate = new Date(this.gDate.getTime() + this.offset * 60000);
+      this.log.debug("Test date is " + this.gDate.toISOString());
+    }
     this.hDate = new this.HeDate(this.gDate);
 
     var suntimes = this.SunCalc.getTimes(this.gDate, this.lat, this.long);
