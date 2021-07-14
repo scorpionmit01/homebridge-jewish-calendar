@@ -106,13 +106,17 @@ class JewishCalendar {
     if ((typeof this.offset !== 'undefined') && (this.offset != 0)) {
       this.log.debug("Shifting the time by " + this.offset + " minutes.");
       this.gDate = new Date(this.gDate.getTime() + this.offset * 60000);
-      this.log.debug("Test date is " + this.gDate.toISOString());
     }
+    this.log.debug("Test date is " + this.gDate.toISOString());
     this.hDate = new this.HeDate(this.gDate);
 
-    var suntimes = this.SunCalc.getTimes(this.gDate, this.lat, this.long);
-    this.sunset = suntimes.sunsetStart;
+    const midday = new Date(this.gDate.getFullYear(), this.gDate.getMonth(), this.gDate.getDate(), 12, 0, 0, 0, 0);
+    this.log.debug("updateJewishDay():  today=" + this.gDate.toISOString());
+    this.log.debug("updateJewishDay(): midday=" + midday.toISOString());
     
+    var suntimes = this.SunCalc.getTimes(midday, this.lat, this.long);
+    this.sunset = suntimes.sunsetStart;
+
     this.log.debug("Sunset Tonight: " + this.sunset.toLocaleString());
 // Note, this is for programming. In non leap years, Adar1 and Adar2 are BOTH 5. Month is zero indexed.
 
@@ -154,7 +158,8 @@ class JewishCalendar {
     candletime.setMinutes(this.sunset.getMinutes() - this.candlelighting);
 
     var havdalahtime = new Date(this.sunset);
-    havdalahtime.setMinutes(this.sunset.getMinutes() + this.havdalah);    
+    havdalahtime.setMinutes(this.sunset.getMinutes() + this.havdalah);
+    this.log.debug("isShabbat(): day = " + day + ", this.gDate = " + this.gDate + ", this.hDate = " + this.hDate + ", candletime = " + candletime + ", havdalahtime = " + havdalahtime);
     return (((5 == day) && (this.gDate > candletime)) || ((6 == day) && (this.gDate < havdalahtime)));
   }
 
