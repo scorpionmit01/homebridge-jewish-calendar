@@ -5,7 +5,7 @@
 
 # "Jewish Calendar" Plugin
 
-This Switch creates a series of Contact Switches that you can use in Automation related to the Hebrew Calendar. The heavy lift of this is from he-date and sun-calc. The rest was just calculating the various events.
+This Plugin creates a series of Contact Switches that you can use in Automation related to the Hebrew Calendar. The heavy lift of this is from he-date and sun-calc. The rest was just calculating the various events.
 
 
 Example config.json:
@@ -45,7 +45,7 @@ Example config.json:
 
 ## Explanation of Plugin and Config
 
-The project was originally designed for me to have a better "Shabbat Mode" in Homekit, but for completeness I added some very specific ones. The settings in the Config for the holidays are to change spelling. I use a modern Transliterated spelling, but feel free to replace with Hebrew, Ashkenazi transliterations, or English. If you look in the sample above, you can see a variation of languages.
+The project was originally designed for me to have a better "Shabbat Mode" in Homekit, but for completeness I added some very specific ones. The settings in the Config for the holidays are to change spelling. I use a modern Transliterated spelling, but feel free to replace with Hebrew, Ashkenazi transliterations, English, or whatever language you prefer. If you look in the sample above, you can see a variation of languages.
 
 ## Caveats
 
@@ -61,17 +61,19 @@ Turn the Dining Room on for lunch on all Sabbath and Holidays, except Sukkot. On
 
 Trigger: Timer: 12:30 PM
 Conditions:
-  Kodesh: On
-  Sukkot: Off
+  Kodesh: Open
+  Sukkot: Closed
 Scene: Dining Room Entertaining
 
 Trigger: Timer 12:30 PM
 Conditions:
-  Kodesh: On
-  Sukkot: On
+  Kodesh: Closed
+  Sukkot: Closed
 Scene: Sukkah On
 
 NOTE: Because of quirks in how Sun-Calc and Apple can calculate things like Sundown, I recommend that you either use a fixed Time for your Trigger, or Sundown or later. But setting it to run 15 minutes before Sundown when Shabbat: On should work.
+
+On/Off Settings - the words may be backwards. Contact sensors are open/closed. Eve is a fantastic for editing rules but it terminology felt "backwards" for checking the settings.
 
 ## Debugging your rules
 
@@ -120,7 +122,12 @@ Sukkot: is on from beginning of holiday through Shemini Atzeret. If you enable s
 
 Pesach: runs from beginning of holiday through the end, including Chol Hamoed.
 
+## Special Thank You
+
+Hat tip to shayweiss who found the bug and the fix. It's Suncalc Issue #11, apparently not being fixed
+https://github.com/mourner/suncalc/issues/11
+
+
 ## How to say thank you for this
 
-Drop me an email, scorpion@alum.mit.edu will always forward to me and say thanks. If you want to do more, please consider a donation to your local Jewish Federation in honor of Homebridge Jewish Calendar.
-
+Drop me an email, scorpion@alum.mit.edu will always forward to me and say thanks. It's happened a few times, and it really makes my day. If you want to do more, please consider a donation to your local Jewish Federation in honor of Homebridge Jewish Calendar.

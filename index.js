@@ -106,11 +106,19 @@ class JewishCalendar {
     if ((typeof this.offset !== 'undefined') && (this.offset != 0)) {
       this.log.debug("Shifting the time by " + this.offset + " minutes.");
       this.gDate = new Date(this.gDate.getTime() + this.offset * 60000);
-      this.log.debug("Test date is " + this.gDate.toISOString());
     }
+    this.log.debug("Test date is " + this.gDate.toISOString());
     this.hDate = new this.HeDate(this.gDate);
 
-    var suntimes = this.SunCalc.getTimes(this.gDate, this.lat, this.long);
+    // Extremely weird bug in Suncalc has it calculate the wrong times at edges of the day. Workaround is to always check at noon
+    var midday = new Date(this.gDate.getFullYear(), this.gDate.getMonth(), this.gDate.getDate(), 12, 0, 0, 0, 0);
+
+    // For debugging, track them both
+    this.log.debug("updateJewishDay():  today=" + this.gDate.toISOString());
+    this.log.debug("updateJewishDay(): midday=" + midday.toISOString());
+
+
+    var suntimes = this.SunCalc.getTimes(midday, this.lat, this.long);
     this.sunset = suntimes.sunsetStart;
     
     this.log.debug("Sunset Tonight: " + this.sunset.toLocaleString());
